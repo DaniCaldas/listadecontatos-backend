@@ -86,6 +86,4 @@ app.delete('/delete/:id',(req,res) => {
 })
 
 
-app.listen(3001, ()=>{
-    console.log('server ativo!')
-})
+app.listen(process.env.PORT || 3001)
