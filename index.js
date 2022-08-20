@@ -86,4 +86,4 @@ app.delete('/delete/:id',(req,res) => {
 })
 
 
-app.listen(process.env.PORT || 3001)
+app.listen(3001)
