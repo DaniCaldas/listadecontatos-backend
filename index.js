@@ -11,7 +11,7 @@ const db = mysql.createPool({
 })
 
 app.use(cors({
-    origin:process.env.PORT || 3000
+    origin:"https://lista-de-contatos.vercel.app/"
 }))
 app.use(express.json())
 
