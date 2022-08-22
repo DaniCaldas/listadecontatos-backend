@@ -10,8 +10,11 @@ const db = mysql.createPool({
     database:"listadecontatos"
 })
 
-app.use(cors())
+app.use(cors({
+    origin:'https://backend-listadecontatos.herokuapp.com'
+}))
 app.use(express.json())
+
 
 app.post("/register", (req, res) => {
     const {nome} = req.body
@@ -90,6 +93,4 @@ app.get('/test', (req,res) => {
 })
 
 
-app.listen(process.env.PORT || 3000,()=>{
-    console.log('rodando!')
-})
+app.listen(process.env.PORT || 3000)
