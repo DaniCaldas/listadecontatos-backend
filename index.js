@@ -11,7 +11,7 @@ const db = mysql.createPool({
 })
 
 app.use(cors({
-    origin:'https://backend-listadecontatos.herokuapp.com'
+    origin:process.env.PORT || 3000
 }))
 app.use(express.json())
 
