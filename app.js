@@ -90,7 +90,7 @@ app.delete('/delete/:id',(req,res) => {
     })
 })
 
-app.get('/test', (req,res) => {
+app.get('/', (req,res) => {
     res.send("servidor rodando!")
 }) 
 const PORT = process.env.PORT || 3000;
