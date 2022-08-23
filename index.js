@@ -3,10 +3,11 @@ const app = express()
 const mysql = require("mysql2")
 const cors = require("cors")
 
-app.use(cors({
-    origin:"http://127.0.0.1:5173/",
-    methods:["GET","POST","PUT","DELETE"]
-}))
+app.use((req,res,next) => {
+    app.use(cors())
+    res.header("Access-Control-Allow-Origin", "*")
+    next()
+})
 
 const db = mysql.createPool({
     host:"34.95.155.211",
