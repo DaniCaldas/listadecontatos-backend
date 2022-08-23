@@ -3,16 +3,17 @@ const app = express()
 const mysql = require("mysql2")
 const cors = require("cors")
 
+app.use(cors({
+    origin:"*",
+    methods:["GET","POST","PUT","DELETE"]
+}))
+
 const db = mysql.createPool({
     host:"34.95.155.211",
     user:"root",
     password:"1234",
     database:"listadecontatos"
 })
-
-app.use(cors({
-    origin:"*",
-}))
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin","*")
@@ -60,7 +61,9 @@ app.post("/search", (req, res) => {
 app.get("/getcontacts",(req,res) => {
     let SQL = "select * from contatos"
     db.query(SQL,(err,result)=>{
-        if(err) console.log(err)
+        if(err){
+            console.log(err)
+        } 
         else res.send(result)
     })
 })
