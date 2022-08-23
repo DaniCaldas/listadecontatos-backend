@@ -3,11 +3,7 @@ const app = express()
 const mysql = require("mysql2")
 const cors = require("cors")
 
-app.use((req,res,next) => {
-    app.use(cors())
-    res.header("Access-Control-Allow-Origin", "*")
-    next()
-})
+app.use(cors())
 
 const db = mysql.createPool({
     host:"34.95.155.211",
@@ -97,7 +93,6 @@ app.delete('/delete/:id',(req,res) => {
 app.get('/test', (req,res) => {
     res.send("servidor rodando!")
 }) 
+const PORT = process.env.PORT || 3000;
 
-app.listen(process.env.PORT || 3000,()=>{
-    console.log("servidor rodando")
-})
+app.listen(PORT)
