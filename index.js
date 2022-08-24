@@ -4,6 +4,8 @@ const mysql = require("mysql2")
 const cors = require("cors")
 
 app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 const db = mysql.createPool({
     host:"34.95.155.211",
@@ -11,9 +13,6 @@ const db = mysql.createPool({
     password:"1234",
     database:"listadecontatos"
 })
-
-
-app.use(express.json())
 
 
 app.post("/register", (req, res) => {
@@ -94,6 +93,4 @@ app.get('/', (req,res) => {
     res.send("servidor rodando!")
 }) 
 
-app.listen(process.env.PORT,() => {
-    console.log("servidor rodando")
-})
+app.listen(process.env.PORT || 3000)
