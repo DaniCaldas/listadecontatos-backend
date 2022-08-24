@@ -93,8 +93,7 @@ app.delete('/delete/:id',(req,res) => {
 app.get('/', (req,res) => {
     res.send("servidor rodando!")
 }) 
-const PORT = process.env.PORT || 3000;
 
-app.listen(PORT,() => {
+app.listen(process.env.PORT || 3000,() => {
     console.log("servidor rodando")
 })
