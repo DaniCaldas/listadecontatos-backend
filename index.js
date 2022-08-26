@@ -3,14 +3,16 @@ const app = express()
 const mysql = require("mysql2")
 const cors = require("cors")
 
-app.use(cors())
+app.use(cors({
+    origin:"*"
+}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const db = mysql.createPool({
-    host:"34.95.155.211",
+    host:"localhost",
     user:"root",
-    password:"1234",
+    password:"",
     database:"listadecontatos"
 })
 
