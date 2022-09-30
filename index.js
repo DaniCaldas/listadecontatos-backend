@@ -3,16 +3,13 @@ const app = express()
 const mysql = require("mysql2")
 const cors = require("cors")
 
-app.use(cors({
-    origin:"*"
-}))
+app.use(cors())
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 
 const db = mysql.createPool({
-    host:"localhost",
+    host:"34.151.244.20",
     user:"root",
-    password:"",
+    password:"daniel1609",
     database:"listadecontatos"
 })
 
@@ -55,7 +52,7 @@ app.get("/getcontacts",(req,res) => {
     let SQL = "select * from contatos"
     db.query(SQL,(err,result)=>{
         if(err){
-            console.log(err)
+            console.log(err);
         } 
         else res.send(result)
     })
@@ -95,4 +92,4 @@ app.get('/', (req,res) => {
     res.send("servidor rodando!")
 }) 
 
-app.listen(process.env.PORT || 3000)
+app.listen(3000)
